@@ -6,6 +6,8 @@
       
      @{
             NodeName = 'DC1'
+            BackupTime = [datetime]::today.AddHours(21)
+            DiskNumber = 1
         }
     )
 }
@@ -27,14 +29,13 @@ configuration Backup {
         Script NewSSBUPolicy {
             TestScript = {
                 $policy = get-wbPolicy
-                if (($Policy -ne $Null) -and ($Policy.SystemState -eq $True) -and ($Policy.schedule -eq ([datetime]::today.AddHours(21)))) {return $True}
+                if (($Policy -ne $Null) -and ($Policy.SystemState -eq $True) -and ($Policy.schedule -eq $Using:Node.BackupTime)) {return $True}
                 else {return $False}
                 }
             SetScript = {
-                $BackupTime = [datetime]::today.AddHours(21)
                 $Policy = New-WBPolicy
-                Set-WBSchedule -Policy $Policy -Schedule $BackupTime
-                $Target = New-WBBackupTarget -Disk (get-wbdisk | Where-Object {$_.DiskNumber -eq 1})
+                Set-WBSchedule -Policy $Policy -Schedule $Using:Node.BackupTime
+                $Target = New-WBBackupTarget -Disk (get-wbdisk | Where-Object {$_.DiskNumber -eq $Using:Node.DiskNumber})
                 Add-WBBackupTarget -Policy $Policy -Target $Target -force
                 Add-WBSystemState -Policy $Policy
                 Set-WBPolicy -AllowDeleteOldBackups -Policy $Policy -force

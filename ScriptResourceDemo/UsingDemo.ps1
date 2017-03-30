@@ -2,6 +2,8 @@
     AllNodes = @(
         @{
             NodeName = '*'
+            CN = "CompanyRoot"
+            DomainDN = "DC=company,DC=pri"
            }
       
      @{
@@ -17,7 +19,7 @@ Configuration DoSomething {
         Script doSomething {
                 TestScript = {
                     try {
-                        Get-ADObject -Identity "CN=CompanyRoot,CN=Certification Authorities,CN=Public Key Services,CN=Services,CN=Configuration,DC=Company,DC=Pri"
+                        Get-ADObject -Identity "CN=$Using:Node.CN,CN=Certification Authorities,CN=Public Key Services,CN=Services,CN=Configuration,DC=$Using:Node.DomainDN"
                         Return $True
                     }
                     Catch {
@@ -28,7 +30,7 @@ Configuration DoSomething {
                     do-something
                     }
                 GetScript = {
-                    Return @{Result = (Get-ADObject -Identity "CN=CompanyRoot,CN=Certification Authorities,CN=Public Key Services,CN=Services,CN=Configuration,DC=Company,DC=Pri").Name}
+                    Return @{Result = (Get-ADObject -Identity "CN=$Using:Node.CN,CN=Certification Authorities,CN=Public Key Services,CN=Services,CN=Configuration,$Using:Node.DomainDN").Name}
                     }
                 }
         }
