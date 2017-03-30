@@ -21,15 +21,15 @@ $credential = New-Object -typename Pscredential -ArgumentList Administrator, $se
 
     node $AllNodes.Where({$_.Role -eq 'DC'}).NodeName {
 
-    $DomainCredential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList ("$($ConfigurationData.DCData.DomainName)\$($Credential.UserName)", $Credential.Password)
+    $DomainCredential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList ("$($Node.DomainName)\$($Credential.UserName)", $Credential.Password)
 
             xADDomain FirstDC {
-                DomainName = $ConfigurationData.DCData.DomainName
+                DomainName = $Node.DomainName
                 DomainAdministratorCredential = $Credential
                 SafemodeAdministratorPassword = $Credential
-                DatabasePath = $ConfigurationData.DCData.DCDatabasePath
-                LogPath = $ConfigurationData.DCData.DCLogPath
-                SysvolPath = $ConfigurationData.DCData.SysvolPath 
+                DatabasePath = $Node.DCDatabasePath
+                LogPath = $Node.DCLogPath
+                SysvolPath = $Node.SysvolPath 
             }  
 
                          

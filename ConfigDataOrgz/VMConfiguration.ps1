@@ -760,5 +760,5 @@ $credential = New-Object -typename Pscredential -ArgumentList Administrator, $se
 } # End AllNodes
 #endregion
 
-AutoLab -OutputPath .\ -ConfigurationData .\*.psd1
+AutoLab -OutputPath .\ -ConfigurationData .\ConfigDataOrgz\VMConfigurationData.psd1
 

@@ -7,6 +7,12 @@ cd C:\Github\SummitAdvDSC
 
 #Autolab
 
+#Config Data
+        ise ".\ConfigDataOrgz\VMConfigurationDataOrig.psd1"
+        ise ".\ConfigDataOrgz\VMConfigurationData.psd1"
+        ise ".\ConfigDataOrgz\VMConfiguration_Orig.ps1"
+        ise ".\ConfigDataOrgz\VMConfiguration_nnd.ps1"
+        
 #Script Resource
         ise ".\ScriptResourceDemo\ScriptFirst.ps1"
         ise ".\ScriptResourceDemo\DSC script resource0.ps1"

@@ -1,10 +1,12 @@
-﻿#Setup
-cd C:\Github\SummitAdvDSC
-
-#Autolab - Jason
+﻿#Autolab - Jason
 
 #ConfigurationData
-
+    #Separation of config data and config
+    #Growth of configuration data
+    #Original config data
+    #Config data using NND
+    #Configuration using $ConfigurationData
+    #Make it easier 
 
 #Script Resource
     #The design debate - Start with test, or start with set?
