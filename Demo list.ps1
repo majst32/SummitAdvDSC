@@ -18,7 +18,7 @@ cd C:\Github\SummitAdvDSC
         ise ".\ScriptResourceDemo\DSC script resource0.ps1"
         
     #Adding params:
-        ise ".\ScriptResourceDemo\Remove-WBPolicyDemo.ps1"
+        ".\ScriptResourceDemo\Remove-WBPolicyDemo.ps1"
         ise '.\ScriptResourceDemo\DSC script resource1.ps1'
         notepad "C:\DSC\Configs\dc1.mof"
 

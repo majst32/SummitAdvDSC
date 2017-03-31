@@ -50,20 +50,15 @@ REMEMBER TO ADD A SECOND DISK TO YOUR DC FOR THIS DEMO!!  And online the disk.
 
     #Increasing Scope
         #Absent and Present
-        #Not just about a single configuration setting
+        #Parameter defs (but handled already with xdscresourcedesigner)
+        #No more $Using
 
     #Perils of Parameter Types
-        #DSC Resource Designer (tell story - started with custom resource and code, not schema, got fancy with parameter types, code worked, resource bombed)
-    #DSC Resource Designer 
     #Testing with PSBoundParameters
-    #Testing the set function - set is successful if no errors are received - NOT if the set is successful.  Reference:  external commands (ICACLs, certutil)
     #Testing methodology - loading functions into memory, invoke-DSCResource
 
 #Moving to (or creating) Class-Based Resource
     #Versioning is the New Hotness
-
-#Configuration Data and Non-Node Data
-
     
 #Pull-Tug-Shove
 
@@ -80,7 +75,6 @@ REMEMBER TO ADD A SECOND DISK TO YOUR DC FOR THIS DEMO!!  And online the disk.
 .\Tug\ParisTZ.ps1
 #Copy Config and Module to Tug Server
 .\Tug\copy-itemsToTugServer.ps1
-#Demo Reporting <get info>
 
 #Publish-ModulesandMof
 
