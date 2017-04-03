@@ -1,11 +1,11 @@
 ﻿Configuration SMBShareTest {
     Import-DscResource -ModuleName SMBShareClass -ModuleVersion 1.0.0.0
 
-    Node localhost {
+    Node tgtpull {
 
-        SMBShareClass NNDTest {
-           Name = "NNDTest"
-           Path = "C:\Autolab\NNDTest"
+        SMBShareClass Modules {
+           Name = "Modules"
+           Path = "C:\Program Files\WindowsPowerShell\Modules"
            Ensure = "Present"
            }
     }
