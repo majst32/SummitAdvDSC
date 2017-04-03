@@ -1,4 +1,12 @@
-﻿#Autolab - Jason
+﻿#Environment needs:
+#DC with second disk for system state backups
+#Remove module "MySMBShare2" from Auth box
+#Clear C:\dsc\Configs and C:\DSC\LCM from Auth box
+#Tug server
+#TgtTug (Tug Client)
+
+
+#Autolab - Jason
 
 #ConfigurationData
     #Separation of config data and config
@@ -46,7 +54,7 @@ REMEMBER TO ADD A SECOND DISK TO YOUR DC FOR THIS DEMO!!  And online the disk.
 #Moving to a Custom Resource
     #DSC book says it's "about 4 lines of code" but it isn't really
     #DSC Resource Designer (tell story - started with custom resource and code, not schema, got fancy with parameter types, code worked, resource bombed)
-    ise .\ScriptResourceDemo\CustomResourceShell.ps1
+    ise .\CustomResourceDemo\CustomResourceShell.ps1
 
     #Increasing Scope
         #Absent and Present
@@ -58,6 +66,8 @@ REMEMBER TO ADD A SECOND DISK TO YOUR DC FOR THIS DEMO!!  And online the disk.
     #Testing methodology - loading functions into memory, invoke-DSCResource
 
 #Moving to (or creating) Class-Based Resource
+    #No Schema.mof 
+    #Parameters and parameter attributes are defined a little differently
     #Versioning is the New Hotness
     
 #Pull-Tug-Shove
@@ -75,8 +85,6 @@ REMEMBER TO ADD A SECOND DISK TO YOUR DC FOR THIS DEMO!!  And online the disk.
 .\Tug\ParisTZ.ps1
 #Copy Config and Module to Tug Server
 .\Tug\copy-itemsToTugServer.ps1
-
-#Publish-ModulesandMof
 
 #Teaching DSC TO Junior Admins (Jason)
 
